@@ -21,6 +21,8 @@ A comprehensive, enterprise-grade DevOps pipeline implementing CI, CD, and DevSe
 
 The following diagram illustrates the end-to-end flow of the CI/CD process:
 
+![CI/CD Architecture Diagram](./images/Screenshot%202025-09-07%20163326.png)
+
 
 **Flow Explanation:**
 1.  A developer pushes code to the **GitHub** repository.
