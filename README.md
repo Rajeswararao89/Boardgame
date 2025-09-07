@@ -2,6 +2,11 @@
 
 A comprehensive, enterprise-grade DevOps pipeline implementing CI, CD, and DevSecOps best practices to automate the deployment of a containerized application onto a highly available Kubernetes cluster.
 
+## 📄 Project Report
+
+A detailed project report documenting the architecture, implementation, challenges, and conclusions is available for download.
+
+[📥 Download Full Project Report (PDF)](./docs/Project_Report.pdf)
 
 ## 📖 Table of Contents
 - [Architecture](#-architecture-overview)
