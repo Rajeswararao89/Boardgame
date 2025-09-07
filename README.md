@@ -84,7 +84,7 @@ The following diagram illustrates the end-to-end flow of the CI/CD process:
 Provision four Ubuntu 20.04 VMs as per the specifications above. Ensure they can communicate over the network.
 
 ### 2. Kubernetes Cluster Setup (on Master & Worker Nodes)
-```bash
+
 # On all nodes: Install Docker, kubeadm, kubelet, kubectl
 sudo apt-get update && sudo apt-get install -y docker.io
 sudo systemctl enable docker
@@ -110,6 +110,7 @@ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl versio
 # Use the kubeadm join command generated from the master's init output.
 sudo kubeadm join <master-ip>:6443 --token <token> --discovery-token-ca-cert-hash <hash>
 
+---
 
 ## Jenkins Setup
 # On Jenkins Server
@@ -141,6 +142,7 @@ sudo kubeadm join <master-ip>:6443 --token <token> --discovery-token-ca-cert-has
 
 - Email Notification: Sends a build status report to the configured email ID.
 
+---
 
 ## 🌐 Accessing the Application
 - After a successful pipeline run, the application is deployed in the Kubernetes cluster. To access it:
@@ -150,6 +152,7 @@ sudo kubeadm join <master-ip>:6443 --token <token> --discovery-token-ca-cert-has
 - kubectl get svc -n <namespace>
 - Open your browser and navigate to: http://<worker-node-ip>:<node-port>
 
+---
 ## 🐛 Troubleshooting & Common Issues
 - "ImagePullBackOff" Error: Ensure your Nexus credentials are correct in the Kubernetes secret and that the image tag exists in Nexus.
 
@@ -159,9 +162,10 @@ sudo kubeadm join <master-ip>:6443 --token <token> --discovery-token-ca-cert-has
 
 - SonarQube Scanner Failing: Check the SonarQube server URL and token in the Jenkins credentials.
 
+---
 
 ## 👨‍💻 Author
-- Your Name
+- Rajeswara Rao
 - GitHub: https://github.com/Rajeswararao89
 - LinkedIn: https://www.linkedin.com/in/rajeswararao-jangiti/
 
