@@ -21,7 +21,7 @@ A comprehensive, enterprise-grade DevOps pipeline implementing CI, CD, and DevSe
 
 The following diagram illustrates the end-to-end flow of the CI/CD process:
 
-![CI/CD Architecture Diagram](Screenshot%202025-09-07%20163326.png)
+![CI/CD Architecture Diagram](Screenshot 2025-09-07 163326.png)
 
 
 **Flow Explanation:**
