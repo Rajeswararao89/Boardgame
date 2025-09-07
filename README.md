@@ -1,129 +1,171 @@
-# BoardgameListingWebApp
+# 🚀 Ultimate Corporate CI/CD Pipeline for Kubernetes
 
-## Description
+A comprehensive, enterprise-grade DevOps pipeline implementing CI, CD, and DevSecOps best practices to automate the deployment of a containerized application onto a highly available Kubernetes cluster.
 
-**Board Game Database Full-Stack Web Application.**
-This web application displays lists of board games and their reviews. While anyone can view the board game lists and reviews, they are required to log in to add/ edit the board games and their reviews. The 'users' have the authority to add board games to the list and add reviews, and the 'managers' have the authority to edit/ delete the reviews on top of the authorities of users.  
 
-## Technologies
-
-- Java
-- Spring Boot
-- Amazon Web Services(AWS) EC2
-- Thymeleaf
-- Thymeleaf Fragments
-- HTML5
-- CSS
-- JavaScript
-- Spring MVC
-- JDBC
-- H2 Database Engine (In-memory)
-- JUnit test framework
-- Spring Security
-- Twitter Bootstrap
-- Maven
-
-## Features
-
-- Full-Stack Application
-- UI components created with Thymeleaf and styled with Twitter Bootstrap
-- Authentication and authorization using Spring Security
-  - Authentication by allowing the users to authenticate with a username and password
-  - Authorization by granting different permissions based on the roles (non-members, users, and managers)
-- Different roles (non-members, users, and managers) with varying levels of permissions
-  - Non-members only can see the boardgame lists and reviews
-  - Users can add board games and write reviews
-  - Managers can edit and delete the reviews
-- Deployed the application on AWS EC2
-- JUnit test framework for unit testing
-- Spring MVC best practices to segregate views, controllers, and database packages
-- JDBC for database connectivity and interaction
-- CRUD (Create, Read, Update, Delete) operations for managing data in the database
-- Schema.sql file to customize the schema and input initial data
-- Thymeleaf Fragments to reduce redundancy of repeating HTML elements (head, footer, navigation)
-
-# Ultimate CI/CD Corporate DevOps Pipeline Project
-
-## 🚀 Project Overview
-This project demonstrates a real-time, end-to-end CI/CD pipeline solution designed to automate the complete software delivery lifecycle, from code commit to production deployment, using industry-standard DevOps tools and best practices.
+## 📖 Table of Contents
+- [Architecture](#-architecture-overview)
+- [Features](#-key-features--devsecops-integration)
+- [Tech Stack](#-technology-stack)
+- [Prerequisites](#-prerequisites)
+- [Setup & Installation](#-step-by-step-setup--installation)
+- [Pipeline Stages](#-pipeline-stages-breakdown)
+- [Project Structure](#-project-structure)
+- [Accessing Applications](#-accessing-the-application)
+- [Troubleshooting](#-troubleshooting--common-issues)
+- [License](#-license)
 
 ---
 
-## ✅ Key Features
+## 🏗️ Architecture Overview
 
-- **Source Control Integration:**  
-  Developers push code to **GitHub** repository triggering the pipeline.
+The following diagram illustrates the end-to-end flow of the CI/CD process:
 
-- **Build & Unit Testing:**  
-  Automated build process using **Maven** and unit test execution.
 
-- **Code Quality Check:**  
-  Static code analysis performed by **SonarQube** to maintain code quality.
-
-- **Vulnerability Scanning:**  
-  Comprehensive security scanning of source code and Docker images using **Aqua Trivy**.
-
-- **Artifact Management:**  
-  Build artifacts and Docker images are pushed to a private **Nexus Repository**.
-
-- **Containerization:**  
-  Application packaged as **Docker images**.
-
-- **Kubernetes Deployment:**  
-  Automated deployment of Docker containers into a scalable and fault-tolerant **Kubernetes Cluster**.
-
-- **Security Compliance:**  
-  Kubernetes cluster security scanned using **KubeAudit**.
-
-- **Monitoring & Visualization:**  
-  Real-time monitoring with **Prometheus & Grafana dashboards**.
-
-- **Automated Notifications:**  
-  Email alerts on successful or failed deployments.
+**Flow Explanation:**
+1.  A developer pushes code to the **GitHub** repository.
+2.  This triggers a webhook to the **Jenkins** server.
+3.  Jenkins executes the pipeline defined in the `Jenkinsfile`, spinning up a dynamic agent.
+4.  The pipeline progresses through stages for code analysis, building, scanning, and storing artifacts.
+5.  The final stage deploys the validated application to the **Kubernetes cluster**.
+6.  Notifications are sent via email upon success or failure.
 
 ---
 
-## ⚙️ Technology Stack
+## ✨ Key Features & DevSecOps Integration
 
-| Category           | Tools & Technologies         |
-|--------------------|-------------------------------|
-| Source Control     | GitHub                        |
-| CI/CD Tool         | Jenkins                       |
-| Build Tool         | Maven                         |
-| Code Quality Scan  | SonarQube                     |
-| Vulnerability Scan | Aqua Trivy                    |
-| Artifact Storage   | Nexus Repository              |
-| Containerization   | Docker                        |
-| Orchestration      | Kubernetes                    |
-| Monitoring         | Prometheus, Grafana           |
-| Notifications      | Gmail (SMTP integration)      |
+- **🔐 Shift-Left Security:** Integrated security scanning early in the pipeline.
+  - **SonarQube:** Static Application Security Testing (SAST) for source code analysis.
+  - **Trivy:** Container scanning for vulnerabilities (CVEs) in Docker images.
+- **📦 Artifact Management:** Uses **Nexus Repository** as a single source of truth for versioned Docker images, ensuring reproducibility and traceability.
+- **☸️ Kubernetes-Native Deployment:** Automated rolling deployments to a multi-node (1 Master, 2 Worker) K3s cluster for high availability.
+- **📧 Notifications:** Instant email alerts with build status for rapid feedback.
 
 ---
 
-## 🎯 Workflow Diagram
+## 🛠️ Technology Stack
 
-![Pipeline Architecture](a2bdc48e-e2c5-4943-80a2-e08024a54e31.png)
-
----
-
-## 📋 Usage
-
-1. Developer pushes code to the GitHub repository.
-2. Jenkins pipeline is triggered:
-    - Pulls the latest code.
-    - Runs unit tests using Maven.
-    - Performs SonarQube analysis.
-    - Scans for vulnerabilities using Aqua Trivy.
-    - Builds and tags Docker images.
-    - Pushes images to Nexus Repository.
-    - Pushes images to Docker Registry.
-3. Deploy Docker images to Kubernetes.
-4. Monitor services using Prometheus and Grafana.
-5. Receive email notification upon successful deployment.
+| Category       | Tools                                                                                           |
+|----------------|-------------------------------------------------------------------------------------------------|
+| **SCM**        | GitHub                                                                                          |
+| **CI/CD**      | Jenkins                                                                                         |
+| **Build**      | Docker                                                                                          |
+| **Code Quality** | SonarQube                                                                                       |
+| **Security**   | Trivy                                                                                           |
+| **Artifact Repo** | Sonatype Nexus                                                                                  |
+| **Orchestration** | Kubernetes (kubeadm)                                                                           |
+| **Infrastructure** | VirtualBox, Ubuntu 20.04 LTS                                                                   |
+| **Notification** | Jenkins Email Extension Plugin                                                                 |
 
 ---
 
+## ✅ Prerequisites
 
+**Software Requirements:**
+- **VirtualBox/VMware:** For provisioning virtual machines.
+- **Vagrant (Optional):** For automated VM provisioning.
+
+**Hardware Requirements:**
+- Minimum **8GB RAM** (16GB Recommended)
+- **4 vCPUs**
+- **50GB** Free Disk Space
+
+**VM Specifications:**
+- **Jenkins Server:** 1 vCPU, 2GB RAM, 20GB Disk
+- **Kubernetes Master:** 2 vCPUs, 2GB RAM, 20GB Disk
+- **Kubernetes Worker 1:** 1 vCPU, 2GB RAM, 20GB Disk
+- **Kubernetes Worker 2:** 1 vCPU, 2GB RAM, 20GB Disk
+
+---
+
+## 🔧 Step-by-Step Setup & Installation
+
+### 1. Infrastructure Provisioning
+Provision four Ubuntu 20.04 VMs as per the specifications above. Ensure they can communicate over the network.
+
+### 2. Kubernetes Cluster Setup (on Master & Worker Nodes)
+```bash
+# On all nodes: Install Docker, kubeadm, kubelet, kubectl
+sudo apt-get update && sudo apt-get install -y docker.io
+sudo systemctl enable docker
+sudo systemctl start docker
+
+sudo apt-get install -y apt-transport-https curl
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+sudo apt-get update && sudo apt-get install -y kubeadm kubelet kubectl
+sudo apt-mark hold kubeadm kubelet kubectl
+
+# On Master Node Only:
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+# Install a Pod Network (Weave Net)
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+
+
+# On Worker Nodes:
+# Use the kubeadm join command generated from the master's init output.
+sudo kubeadm join <master-ip>:6443 --token <token> --discovery-token-ca-cert-hash <hash>
+
+
+## Jenkins Setup
+# On Jenkins Server
+- java -jar jenkins.war --httpPort=8080
+- Install Plugins: Navigate to Manage Jenkins > Plugins Manager and install: Docker Pipeline, SonarQube Scanner, Email Extension, Kubernetes CLI, Blue Ocean.
+
+- Configure Tools: In Global Tool Configuration, set paths for Docker, JDK, SonarQube Scanner, and Kubectl.
+
+- Add Credentials: Add credentials for Docker Hub, Nexus, and Kubernetes config file in the Jenkins credential store.
+
+## Deploy Supporting Tools (Nexus, SonarQube)
+- Deploy these on the Jenkins server or a separate VM using Docker.
+# Example: Run SonarQube
+- docker run -d --name sonarqube -p 9000:9000 sonarqube:lts-community
+## ⚙️ Pipeline Stages Breakdown
+- The pipeline is defined in the Jenkinsfile and consists of the following stages:
+
+- Checkout SCM: Clones the source code from GitHub.
+
+- SonarQube Analysis: Performs static code analysis and fails the build if quality gates are not met.
+
+- Build Docker Image: Builds the Docker image, tagging it with the BUILD_ID.
+
+- Trivy Vulnerability Scan: Scans the Docker image for CVEs. The build fails on critical vulnerabilities.
+
+- Push to Nexus: Tags the image as RELEASE and pushes it to the Nexus Docker repository.
+
+- Deploy to Kubernetes: Applies the Kubernetes manifests, which pull the image from Nexus and deploy it to the cluster.
+
+- Email Notification: Sends a build status report to the configured email ID.
+
+
+## 🌐 Accessing the Application
+- After a successful pipeline run, the application is deployed in the Kubernetes cluster. To access it:
+
+- Get the NodePort of your service:
+
+- kubectl get svc -n <namespace>
+- Open your browser and navigate to: http://<worker-node-ip>:<node-port>
+
+## 🐛 Troubleshooting & Common Issues
+- "ImagePullBackOff" Error: Ensure your Nexus credentials are correct in the Kubernetes secret and that the image tag exists in Nexus.
+
+- Kubernetes Master Not Ready: Often due to a missing pod network. Confirm Weave Net pods are running with kubectl get pods -n kube-system.
+
+- Jenkins Agent Lacks Permissions: Ensure the user running the Jenkins agent is part of the docker group to run Docker commands (sudo usermod -aG docker jenkins).
+
+- SonarQube Scanner Failing: Check the SonarQube server URL and token in the Jenkins credentials.
+
+
+## 👨‍💻 Author
+- Your Name
+- GitHub: https://github.com/Rajeswararao89
+- LinkedIn: https://www.linkedin.com/in/rajeswararao-jangiti/
+
+## 💡 Acknowledgments: This project was inspired by the need to demonstrate real-world corporate DevOps and DevSecOps practices using open-source tools.
 
 
 
