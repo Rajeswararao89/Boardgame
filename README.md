@@ -42,12 +42,96 @@ This web application displays lists of board games and their reviews. While anyo
 - Schema.sql file to customize the schema and input initial data
 - Thymeleaf Fragments to reduce redundancy of repeating HTML elements (head, footer, navigation)
 
-## How to Run
+# Ultimate CI/CD Corporate DevOps Pipeline Project
 
-1. Clone the repository
-2. Open the project in your IDE of choice
-3. Run the application
-4. To use initial user data, use the following credentials.
-  - username: bugs    |     password: bunny (user role)
-  - username: daffy   |     password: duck  (manager role)
-5. You can also sign-up as a new user and customize your role to play with the application! 😊
+## 🚀 Project Overview
+This project demonstrates a real-time, end-to-end CI/CD pipeline solution designed to automate the complete software delivery lifecycle, from code commit to production deployment, using industry-standard DevOps tools and best practices.
+
+---
+
+## ✅ Key Features
+
+- **Source Control Integration:**  
+  Developers push code to **GitHub** repository triggering the pipeline.
+
+- **Build & Unit Testing:**  
+  Automated build process using **Maven** and unit test execution.
+
+- **Code Quality Check:**  
+  Static code analysis performed by **SonarQube** to maintain code quality.
+
+- **Vulnerability Scanning:**  
+  Comprehensive security scanning of source code and Docker images using **Aqua Trivy**.
+
+- **Artifact Management:**  
+  Build artifacts and Docker images are pushed to a private **Nexus Repository**.
+
+- **Containerization:**  
+  Application packaged as **Docker images**.
+
+- **Kubernetes Deployment:**  
+  Automated deployment of Docker containers into a scalable and fault-tolerant **Kubernetes Cluster**.
+
+- **Security Compliance:**  
+  Kubernetes cluster security scanned using **KubeAudit**.
+
+- **Monitoring & Visualization:**  
+  Real-time monitoring with **Prometheus & Grafana dashboards**.
+
+- **Automated Notifications:**  
+  Email alerts on successful or failed deployments.
+
+---
+
+## ⚙️ Technology Stack
+
+| Category           | Tools & Technologies         |
+|--------------------|-------------------------------|
+| Source Control     | GitHub                        |
+| CI/CD Tool         | Jenkins                       |
+| Build Tool         | Maven                         |
+| Code Quality Scan  | SonarQube                     |
+| Vulnerability Scan | Aqua Trivy                    |
+| Artifact Storage   | Nexus Repository              |
+| Containerization   | Docker                        |
+| Orchestration      | Kubernetes                    |
+| Monitoring         | Prometheus, Grafana           |
+| Notifications      | Gmail (SMTP integration)      |
+
+---
+
+## 🎯 Workflow Diagram
+
+![Pipeline Architecture](a2bdc48e-e2c5-4943-80a2-e08024a54e31.png)
+
+---
+
+## 📋 Usage
+
+1. Developer pushes code to the GitHub repository.
+2. Jenkins pipeline is triggered:
+    - Pulls the latest code.
+    - Runs unit tests using Maven.
+    - Performs SonarQube analysis.
+    - Scans for vulnerabilities using Aqua Trivy.
+    - Builds and tags Docker images.
+    - Pushes images to Nexus Repository.
+    - Pushes images to Docker Registry.
+3. Deploy Docker images to Kubernetes.
+4. Monitor services using Prometheus and Grafana.
+5. Receive email notification upon successful deployment.
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
